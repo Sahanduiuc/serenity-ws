@@ -15,7 +15,7 @@ stream = ZMQStream(socket)
 
 def on_message(msgs):
     msg = fh_capnp.TradeMessage.from_bytes(msgs[0])
-    print("{} {} @ {}".format(msg.side, msg.size, msg.price))
+    print("{} {} {} @ {}".format(msg.side, msg.size, msg.tradedProductId, msg.price))
 
 
 stream.on_recv(on_message)
